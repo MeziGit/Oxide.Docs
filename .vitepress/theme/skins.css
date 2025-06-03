@@ -116,11 +116,10 @@
   box-shadow: 0 0 0 2px rgba(247, 107, 21, 0.2);
 }
 
-/* Fixed responsive grid layout - corrected the breakpoint logic */
 .skin-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Default: 4 columns for very large screens */
-  gap: 12px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
   margin-top: 30px;
   padding: 0 40px;
 }
@@ -133,7 +132,7 @@
 }
 
 /* Medium screens - 2 columns */
-@media (max-width: 1200px) {
+@media (max-width: 1600px) {
   .skin-container {
     grid-template-columns: repeat(2, 1fr);
   }
