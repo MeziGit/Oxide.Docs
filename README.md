@@ -1,42 +1,39 @@
-# Rust Skins Fetcher
+Oxide.Docs
+This repository contains the source files for the Oxide documentation. The documentation is built using VitePress.
 
-This project automatically fetches and archives Rust skins from the Steam marketplace on a weekly basis.
+Contributing
+Requirements
+Node.js (v20 or higher)
+Dependencies
+To get started, you will need to install the dependencies. You can do this by running the following command:
 
-## Overview
+npm install
+Development
+To start the development server, run the following command:
 
-A GitHub Action runs every Sunday at 6:00 PM EST to fetch all marketplace items for the game Rust. The data is stored in JSON<sup><a href="/glossary#json">[8]</a></sup> format in the `data` directory with both a timestamped version and a `latest` version.
+npm run docs:dev
+Production
+To preview the production build of the documentation, run the following command:
 
-## Data Structure
+npm run docs:build
+This can be previewed by running the following command:
 
-Each JSON<sup><a href="/glossary#json">[8]</a></sup> file contains:
+npm run docs:preview
+Code Style
+The project uses EditorConfig, Prettier, and pre-commit hooks<sup><a href="/glossary#hooks">[7]</a></sup> to ensure consistent code style across the codebase.
 
-- **Metadata**: Timestamp, app info, and item count
-- **Items**: Detailed information on each marketplace item, including:
-  - Name
-  - Hash name
-  - Price information
-  - Listing counts
-  - Asset description (ID, classid, icon URLs, etc.)
-  - Trading information
-  - More...
+When you commit changes, pre-commit hooks<sup><a href="/glossary#hooks">[7]</a></sup> will automatically format your code according to our style guidelines.
 
-## Setup
+To manually format files:
 
-To use this in your own repository:
+# Format all supported files
 
-1. Fork this repository
-2. Add your Steam API key as a repository secret named `STEAM_API_KEY`
-3. Ensure the GitHub Actions workflow has permissions<sup><a href="/glossary#permissions">[11]</a></sup> to push to your repository
+npm run format
 
-## Manual Triggering
+# Check code style
 
-You can manually trigger the skins fetch process by going to the Actions tab in GitHub and selecting "Run workflow" on the "Fetch Rust Skins from Steam Marketplace" workflow.
+npm run lint
 
-## File Structure
+# Also check code style
 
-- `.github/workflows/fetch-rust-skins.yml` - GitHub Actions workflow file
-- `scripts/fetch_rust_skins.py` - Python script to fetch and save skin data
-- `data/` - Directory where skin data is stored
-  - `skins.json` - Main data file with all skins
-  - `rust_skins_YYYYMMDD.json` - Timestamped archival copy
-  - `rust_skins_latest.json` - Latest version (same as skins.json<sup><a href="/glossary#json">[8]</a></sup>)
+npm run check
